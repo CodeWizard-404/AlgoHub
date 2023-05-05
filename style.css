@@ -1077,6 +1077,11 @@ footer {
     height: 300px;
     width: 100%
 }
+.header00 {
+    background: url(images/bgc.png) no-repeat 50% 20%/cover;
+    height: 300px;
+    width: 100%
+}
 
 .left_col {
     margin: 0 auto;
@@ -1293,11 +1298,11 @@ margin-left:80px ;    }
     .center{
         text-align: center;
         color: white;
-        line-height: 250%;
+        line-height: 190%;
         background-color: black;
-       top: 75%;
-       left: 50%;
-       transform: translate(-50%, -50%);
+        top: 75%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         border-radius: 15px;
         border: 1px solid black;
         border-bottom-width: 2px;
