@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Algo Hub</title>
+    <link rel="shortcut icon" href="../img/LOGO1.png" type="Logo">
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <style>
+    .question{
+      text-align: left;
+      margin-left: 20%;
+      margin-top: 5%;
+      margin-bottom: 3%;
+    }
+    pre {
+        text-align:left;
+      background-color: hwb(0 0% 100%);
+      border: 1px solid #ffffff;
+      padding: 10px;
+      font-family: monospace;
+      font-size: 14px;
+      margin-right: 30%;
+      margin-left: 30%;
+      margin-bottom: 5%;
+      margin-top: 1%;
+    }
+    
+    code {
+      color: rgb(121, 121, 121);
+    }
+    
+    .code-title {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+    <div class="loading-screen">
+        <div class="loading-icon"></div>
+        <div class="loading-text">Loading...</div>
+      </div>
+    <div class="sidebar">
+        <div class="flesh"> <img src="../images/flesh.png" alt="fl"> </div>
+        <div class="logo-sb"> <img src="../img/LOGO1.png" alt="logo">
+            <h3>Learn To Code</h3>
+        </div>
+        <div class="navi">
+            <div class="nav-title">Menu</div>
+            <ul> <a href="../index.html">
+                    <li class="nav-list" id="a1"> <img src="../images/home.png" alt="logo"> <span>Home</span> </li>
+                </a> <a href="Profile.html">
+                    <li class="nav-list" id="a2"> <img src="../images/profile.png" alt="logo"> <span>Profile</span> </li>
+                </a> <a href="courses.html">
+                    <li class="nav-list" id="a3"> <img src="../images/courses.png" alt="logo"> <span>Courses</span> </li>
+                </a> <a href="#contact">
+                    <li class="nav-list " id="a4"> <img src="../images/contact.png" alt="logo"> <span>Contact</span> </li>
+                    <a href="#" id="about-link">
+                        <li class="nav-list" id="a5"> <img src="../images/about.png" alt="logo"> <span>About Us</span>
+                        </li>
+                    </a> </ul>
+        </div>
+        <div class="lg2"> <img src="../img/LOGO2.png"> </div>
+    </div>
+    <div id="overp"></div>
+    <div id="pop">
+        <h2>&#9655; About Us</h2><br>
+        <p>Welcome to our website, where we provide courses on algorithmics from ISET Chaguia!</p><br>
+        <p>Our courses cover all the chapters you'll study in your first year, from the basics of algorithms to advanced
+            topics like data structures and recursion. And with our user-friendly interface, you'll find it fun and easy
+            to learn at your own pace.</p><br>
+        <p>When you sign up with your college email address, you'll get full access to all our courses and features. You
+            can track your progress, take quizzes, and even earn certificates to show off your skills.</p><br>
+        <p>And if you ever need help, our team of experienced instructors is always here to support you.</p><br><button
+            class="cl-btn" id="close-btn-pop" onclick="close_pop()">Close</button>
+    </div>
+    <div class="header_wrap">
+      <div class="header0"></div>
+      <div class="cols">
+        <div class="left_col">
+            <div class="img_container">
+                <img src="../images/question.png" alt="pic">
+            </div>
+        </div>
+    </div>
+    </div>
+  <h1 class="Section_II_Article">Les Arbres</h1>
+  <div class="question">
+    <p>
+      Écrire un programme en C qui implémente la structure d'un arbre binaire de recherche et permet d'insérer <br>
+      des valeurs dans l'arbre et de les afficher en ordre croissant en utilisant un parcours infixé.<br>
+      <br>
+    </p>
+  </div>
+  <div>
+    <h2 class="code-title">Correction</h2>
+    <pre><code>// Ceci est du code C
+      #include < stdio.h >
+        #include < stdlib.h >
+        
+        typedef struct node {
+            int data;
+            struct node* left;
+            struct node* right;
+        } Node;
+        
+        Node* createNode(int value) {
+            Node* newNode = malloc(sizeof(Node));
+            newNode->data = value;
+            newNode->left = NULL;
+            newNode->right = NULL;
+            return newNode;
+        }
+        
+        Node* insert(Node* root, int value) {
+            if (root == NULL) {
+                return createNode(value);
+            } else if (value < root->data) {
+                root->left = insert(root->left, value);
+            } else if (value > root->data) {
+                root->right = insert(root->right, value);
+            }
+            return root;
+        }
+        
+        void inorder(Node* root) {
+            if (root != NULL) {
+                inorder(root->left);
+                printf("%d ", root->data);
+                inorder(root->right);
+            }
+        }
+        
+        int main() {
+            Node* root = NULL;
+            root = insert(root, 5);
+            insert(root, 2);
+            insert(root, 9);
+            insert(root, 1);
+            insert(root, 3);
+            insert(root, 7);
+            insert(root, 10);
+            printf("Inorder traversal: ");
+            inorder(root);
+            printf("\n");
+            return 0;
+        }
+        
+</code></pre>
+  </div>
+  <footer id="contact">
+    <div class="Section_Title"> <img src="../images/code.png" alt="code" /> </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Catalog</a></li>
+                    <li><a href="#">Policyes</a></li>
+                    <li><a href="#">Programs</a></li>
+                </ul>
+            </div>
+            <div class="col">
+                <h4>Get Help</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Feautures</a></li>
+                    <li><a href="#">Accessibilty</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Payment</a></li>
+                </ul>
+            </div>
+            <div class="col">
+                <h4>Pay Here</h4>
+                <ul>
+                    <li><a href="#">Learn</a></li>
+                    <li><a href="#">Articles</a></li>
+                    <li><a href="#">Purches</a></li>
+                    <li><a href="#">Tech++</a></li>
+                </ul>
+            </div>
+            <div class="col">
+                <h4>Follow US</h4> 
+                    <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a> <a
+                    href="https://www.twitter.com"><i class="fab fa-twitter"></i></a> <a
+                    href="https://www.instagram.com"><i class="fab fa-instagram"></i></a><br><br><a
+                    href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a> <a
+                    href="https://www.github.com"><i class="fab fa-github"></i></a> <a
+                    href="https://www.stackoverflow.com"><i class="fab fa-stack-overflow"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<footer id="cp">
+    <div class="copyright">
+        <p>&copy; 2023 TI104 GRP2</p>
+    </div>
+</footer>
+  
+</body>
+<script src="../script.js"></script>
+</html>

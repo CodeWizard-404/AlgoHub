@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Algo Hub</title>
+    <link rel="shortcut icon" href="img/LOGO1.png" type="Logo">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+</head>
+
+<body>
+
+
+    <div class="loading-screen">
+        <div class="loading-icon"></div>
+        <div class="loading-text">Loading...</div>
+    </div>
+
+
+
+    <div class="progressBar">
+        <div class="progressPercent"></div>
+    </div>
+    <script>
+        let myProgressBar = document.querySelector(".progressPercent");
+        const setProgress = () => {
+            myProgressBar.style.width = localStorage.percent + "%";
+        };
+
+        window.onload = () => {
+            // Check if progress is already saved in localStorage
+            if (localStorage.percent) {
+                setProgress();
+            } else {
+                localStorage.percent = JSON.stringify(0);
+            }
+
+            // Check if user has visited any chapter before
+            if (!localStorage.indexs) {
+                localStorage.indexs = JSON.stringify([]);
+            }
+
+            // Update progress based on user's visits to PDFs
+            const chapters = [
+                "ch1.html",
+                "ch2.html",
+                "ch3.html",
+                "ch4.html",
+                "ch5.html",
+                "ch6.html",
+                "ch7.html",
+                "ch8.html",
+                "ch9.html",
+                "ch10.html",
+                "ch11.html",
+                "ch12.html",
+                "ch13.html",
+                "ch14.html",
+                "ch15.html",
+                "ch16.html",
+            ];
+
+            const courseOverviewPdf = "intro.pdf";
+
+            for (let i = 0; i < chapters.length; i++) {
+                const chapterPdf = `./courses/${chapters[i].split(".")[0]}.pdf`;
+                const chapterLink = document.createElement("a");
+                chapterLink.href = chapterPdf;
+                chapterLink.setAttribute("onclick", `indexCheck(${i})`);
+
+                if (localStorage.indexs.includes(i.toString())) {
+                    chapterLink.classList.add("visited");
+                }
+
+                const chapterTitle = document.createElement("h2");
+                chapterTitle.appendChild(chapterLink);
+                chapterTitle.textContent = `Chapter ${i + 1}`;
+
+                document.body.appendChild(chapterTitle);
+            }
+        };
+
+        const addToLocalStorage = () => {
+            let myCurrent = parseFloat(localStorage.percent);
+            if (myCurrent < 100) {
+                myCurrent += 6.25;
+                localStorage.percent = JSON.stringify(myCurrent);
+                setProgress();
+            }
+        };
+
+        const progressBarMaxValue = 100;
+        if (parseFloat(localStorage.percent) > progressBarMaxValue) {
+            localStorage.percent = JSON.stringify(progressBarMaxValue);
+            setProgress();
+        }
+
+        const indexCheck = (pageNumber) => {
+            const visitedChapters = JSON.parse(localStorage.indexs);
+
+            if (!visitedChapters.includes(pageNumber)) {
+                visitedChapters.push(pageNumber);
+                localStorage.indexs = JSON.stringify(visitedChapters);
+                addToLocalStorage();
+            } else {
+                console.log("Already Visited this chapter");
+            }
+        };
+
+    </script>
+
+
+
+
+
+    <div class="sidebar">
+        <div class="flesh"> <img src="images/flesh.png" alt="fl"> </div>
+        <div class="logo-sb"> <img src="img/LOGO1.png" alt="logo">
+            <h3>Learn To Code</h3>
+        </div>
+        <div class="navi">
+            <div class="nav-title">Menu</div>
+            <ul> <a href="index.html">
+                    <li class="nav-list" id="a1"> <img src="images/home.png" alt="logo"> <span>Home</span> </li>
+                </a> <a href="Profile.html">
+                    <li class="nav-list" id="a2"> <img src="images/profile.png" alt="logo"> <span>Profile</span> </li>
+                </a> <a href="courses.html">
+                    <li class="nav-list" id="a3"> <img src="images/courses.png" alt="logo"> <span>Courses</span> </li>
+                </a> <a href="#contact">
+                    <li class="nav-list " id="a4"> <img src="images/contact.png" alt="logo"> <span>Contact</span> </li>
+                    <a href="#" id="about-link">
+                        <li class="nav-list" id="a5"> <img src="images/about.png" alt="logo"> <span>About Us</span>
+                        </li>
+                    </a> </ul>
+        </div>
+        <div class="lg2"> <img src="img/LOGO2.png"> </div>
+    </div>
+    <div id="overp"></div>
+    <div id="pop">
+        <h2>&#9655; About Us</h2><br>
+        <p>Welcome to our website, where we provide courses on algorithmics from ISET Chaguia!</p><br>
+        <p>Our courses cover all the chapters you'll study in your first year, from the basics of algorithms to advanced
+            topics like data structures and recursion. And with our user-friendly interface, you'll find it fun and easy
+            to learn at your own pace.</p><br>
+        <p>When you sign up with your college email address, you'll get full access to all our courses and features. You
+            can track your progress, take quizzes, and even earn certificates to show off your skills.</p><br>
+        <p>And if you ever need help, our team of experienced instructors is always here to support you.</p><br><button
+            class="cl-btn" id="close-btn-pop" onclick="close_pop()">Close</button>
+    </div>
+
+    <header> <img src="images/logo.png" class="logo" />
+        <div class="Text">
+
+            <h1 class="title">Algo<span class="hub">Hub</span></h1>
+            <p><br>&#9655; Step into the algorithmic zone at <a href="https://isetch.rnu.tn/"> <u>Iset Ch</u> </a>
+                &#9665;</p>
+            <div class="btn" id="btn"> <!--<a href="#" onclick="login_open()">--> <a href="login.html"> <span></span>
+                    Get Started</a> <a href="Tips.html"><span></span> Find more</a> </div>
+            <div class="search"> <input type="text" class="search_bar" placeholder="Search" id="search_input" />
+                <ul class="search_list" id="data_list">
+                    <li class="search_data_list"><a href="courses/ch1.html">Chapitre 1: Introduction</a></li>
+                    <li class="search_data_list"><a href="courses/ch2.html">Chapitre 2: Notions de base</a></li>
+                    <li class="search_data_list"><a href="courses/ch3.html">Chapitre 3: Type simple</a></li>
+                    <li class="search_data_list"><a href="courses/ch4.html">Chapitre 4: Structure condtionelles</a></li>
+                    <li class="search_data_list"><a href="courses/ch5.html">Chapitre 5: Structures iteratives</a></li>
+                    <li class="search_data_list"><a href="courses/ch6.html">Chapitre 6: Tableaux</a></li>
+                    <li class="search_data_list"><a href="courses/ch7.html">Chapitre 7: Chaine de caracteres</a></li>
+                    <li class="search_data_list"><a href="courses/ch8.html">Chapitre 8: Fonction sur les chaine des
+                            caracteres</a></li>
+                    <li class="search_data_list"><a href="courses/ch9.html">Chapitre 9: Enregistrelment</a></li>
+                    <li class="search_data_list"><a href="courses/ch10.html">Chapitre 10: Procedures & Fonction</a></li>
+                    <li class="search_data_list"><a href="courses/ch11.html">Chapitre 11: Recursivité</a></li>
+                    <li class="search_data_list"><a href="courses/ch12.html">Chapitre 12: Recherche & Tri</a></li>
+                    <li class="search_data_list"><a href="courses/ch13.html">Chapitre 13: Pointeurs</a></li>
+                    <li class="search_data_list"><a href="courses/ch14.html">Chapitre 14: Listes chainées</a></li>
+                    <li class="search_data_list"><a href="courses/ch15.html">Chapitre 15: Piles & Files</a></li>
+                    <li class="search_data_list"><a href="courses/ch16.html">Chapitre 16: Arbres</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+
+    <section id="Section_I">
+        <div class="Section_Title"> <img src="images/code.png" alt="code" />
+            <p>Basics</p>
+            <h1>SEMESTRE I</h1>
+        </div>
+        <div class="Section_I_Article">
+            <div class="Article_Titles">
+                <h1>&#9655; Chapitre 1: <br></h1>
+                <div class="Sector">
+                    <div class="Sector_icon"> <a href="courses/ch1.html"><input type="image" src="img/intro.png" alt="web" id="wdi" /></a> </div>
+                    <div class="Sector_text">
+                        <p>Introduction C</p>
+                    </div>
+                </div>
+                <h1>&#9655; Chapitre 2: <br></h1>
+                <div class="Sector">
+                    <div class="Sector_icon"><a href="courses/ch2.html"> <input type="image" src="img/basics.png" alt="web" id="gdi" /></a> </div>
+                    <div class="Sector_text">
+                        <p>Notions de base en C</p>
+                    </div>
+                </div>
+                <h1>&#9655; Chapitre 3: <br></h1>
+                <div class="Sector">
+                    <div class="Sector_icon"> <a href="courses/ch3.html"><input type="image" src="img/simple.png" alt="web" id="sdi" /></a> </div>
+                    <div class="Sector_text">
+                        <p>Les Types simples</p>
+                    </div>
+                </div>
+                <h1>&#9655; Chapitre 4: <br></h1>
+                <div class="Sector">
+                    <div class="Sector_icon"> <a href="courses/ch4.html"><input type="image" src="img/condition.png" alt="web" id="mdi" /></a> </div>
+                    <div class="Sector_text">
+                        <p>Les Structures condtionelles</p>
+                    </div>
+                </div>
+            </div>
+            <div class="Article_Image" id="ai"> <img src="images/layers1.jpg" alt="prog" /> </div>
+            <div class="Article_Titles">
+                <h1>&#9655; Chapitre 5: <br></h1>
+                <div class="Sector">
+                    <div class="Sector_icon"> <a href="courses/ch5.html"><input type="image" src="img/itertif.png" alt="web" id="dai" /></a> </div>
+                    <div class="Sector_text">
+                        <p>Les Structures iteratives</p>
+                    </div>
+                </div>
+                <h1>&#9655; Chapitre 6: <br></h1>
+                <div class="Sector">
+                    <div class="Sector_icon"> <a href="courses/ch6.html"><input type="image" src="img/table.png" alt="web" id="esi" /></a> </div>
+                    <div class="Sector_text">
+                        <p>Les Tableaux</p>
+                    </div>
+                </div>
+                <h1>&#9655; Chapitre 7: <br></h1>
+                <div class="Sector">
+                    <div class="Sector_icon"> <a href="courses/ch7.html"><input type="image" src="img/caracter.png" alt="web" id="csi" /></a> </div>
+                    <div class="Sector_text">
+                        <p>Les Chaines de caracteres</p>
+                    </div>
+                </div>
+                <h1>&#9655; Chapitre 8: <br></h1>
+                <div class="Sector">
+                    <div class="Sector_icon"> <a href="courses/ch8.html"><input type="image" src="img/func.png" alt="web" id="gdei" /></a> </div>
+                    <div class="Sector_text">
+                        <p>Fonction sur les chaines de caracteres</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="Section_II">
+        <div class="Section_Title"> <img src="images/code.png" alt="code" />
+            <p>Advenced</p>
+            <h1>SEMESTRE II</h1>
+        </div>
+        <div class="Section_II_Article">
+            <div class="Article2_Image"> <img src="images/software.jpg" alt="prog" /> </div>
+            <div class="Article2_Titles">
+                <h1>&#9655; Chapitre 9: <br></h1>
+                <div class="Sector">
+                    <div class="Sector_icon"> <a href="courses/ch9.html"><input type="image" src="img/enreg.png" alt="web" id="enreg" /></a> </div>
+                    <div class="Sector_text">
+                        <p>Les Enregistrelments</p>
+                    </div>
+                </div>
+                <h1>&#9655; Chapitre 10: <br></h1>
+                <div class="Sector">
+                    <div class="Sector_icon"> <a href="courses/ch10.html"><input type="image" src="img/func.png" alt="web" id="func" /></a> </div>
+                    <div class="Sector_text">
+                        <p>Procedures & Fonctions</p>
+                    </div>
+                </div>
+                <h1>&#9655; Chapitre 11: <br></h1>
+                <div class="Sector">
+                    <div class="Sector_icon"> <a href="courses/ch11.html"><input type="image" src="img/recu.png" alt="web" id="recu" /></a> </div>
+                    <div class="Sector_text">
+                        <p>Recursivité</p>
+                    </div>
+                </div>
+                <h1>&#9655; Chapitre 12: <br></h1>
+                <div class="Sector">
+                    <div class="Sector_icon"> <a href="courses/ch12.html"><input type="image" src="img/tri.png" alt="web" id="tri" /></a> </div>
+                    <div class="Sector_text">
+                        <p>Recherche & Tri</p>
+                    </div>
+                </div>
+            </div>
+            <div class="Article2_Titles">
+                <h1>&#9655; Chapitre 13: <br></h1>
+                <div class="Sector">
+                    <div class="Sector_icon"> <a href="courses/ch13.html"><input type="image" src="img/pointer.png" alt="web" id="pointer" /></a> </div>
+                    <div class="Sector_text">
+                        <p>Les Pointeurs</p>
+                    </div>
+                </div>
+                <h1>&#9655; Chapitre 14: <br></h1>
+                <div class="Sector">
+                    <div class="Sector_icon"> <a href="courses/ch14.html"><input type="image" src="img/liste.png" alt="web" id="liste" /></a> </div>
+                    <div class="Sector_text">
+                        <p>Les Listes chainées</p>
+                    </div>
+                </div>
+                <h1>&#9655; Chapitre 15: <br></h1>
+                <div class="Sector">
+                    <div class="Sector_icon"> <a href="courses/ch15.html"><input type="image" src="img/pile.png" alt="web" id="pile" /></a> </div>
+                    <div class="Sector_text">
+                        <p>Piles & Files</p>
+                    </div>
+                </div>
+                <h1>&#9655; Chapitre 16: <br></h1>
+                <div class="Sector">
+                    <div class="Sector_icon"> <a href="courses/ch16.html"><input type="image" src="img/arbre.png" alt="web" id="arbre" /></a> </div>
+                    <div class="Sector_text">
+                        <p>Les Arbres</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <footer id="contact">
+        <div class="Section_Title"> <img src="images/code.png" alt="code" /> </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Catalog</a></li>
+                        <li><a href="#">Policyes</a></li>
+                        <li><a href="#">Programs</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h4>Get Help</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Feautures</a></li>
+                        <li><a href="#">Accessibilty</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Payment</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h4>Pay Here</h4>
+                    <ul>
+                        <li><a href="#">Learn</a></li>
+                        <li><a href="#">Articles</a></li>
+                        <li><a href="#">Purches</a></li>
+                        <li><a href="#">Tech++</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h4>Follow US</h4>
+                    <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a> <a
+                        href="https://www.twitter.com"><i class="fab fa-twitter"></i></a> <a
+                        href="https://www.instagram.com"><i class="fab fa-instagram"></i></a><br><br><a
+                        href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a> <a
+                        href="https://www.github.com"><i class="fab fa-github"></i></a> <a
+                        href="https://www.stackoverflow.com"><i class="fab fa-stack-overflow"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <footer id="cp">
+        <div class="copyright">
+            <p>&copy; 2023 TI104 Copyrights</p>
+        </div>
+    </footer>
+</body>
+<script src="script.js"></script>
+
+</html>

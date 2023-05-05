@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Algo Hub</title>
+    <link rel="shortcut icon" href="img/LOGO1.png" type="Logo">
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <script src="script.js"></script>
+<link rel="stylesheet" href="style.css">
+<style>
+
+</style>
+</head>
+
+<body>
+
+
+    <div class="loading-screen">
+        <div class="loading-icon"></div>
+        <div class="loading-text">Loading...</div>
+    </div>
+    <!--Menu-------------------------------------------------------->
+
+    <div class="sidebar">
+        <div class="flesh"> <img src="../images/flesh.png" alt="fl"> </div>
+        <div class="logo-sb"> <img src="../img/LOGO1.png" alt="logo">
+            <h3>Learn To Code</h3>
+        </div>
+        <div class="navi">
+            <div class="nav-title">Menu</div>
+            <ul> <a href="../index.html">
+                    <li class="nav-list" id="a1"> <img src="../images/home.png" alt="logo"> <span>Home</span> </li>
+                </a> <a href="../Profile.html">
+                    <li class="nav-list" id="a2"> <img src="../images/profile.png" alt="logo"> <span>Profile</span>
+                    </li>
+                </a> <a href="../courses.html">
+                    <li class="nav-list" id="a3"> <img src="../images/courses.png" alt="logo"> <span>Courses</span>
+                    </li>
+                </a> <a href="#contact">
+                    <li class="nav-list " id="a4"> <img src="../images/contact.png" alt="logo"> <span>Contact</span>
+                    </li>
+                    <a href="#" id="about-link">
+                        <li class="nav-list" id="a5"> <img src="../images/about.png" alt="logo"> <span>About Us</span>
+                        </li>
+                    </a> </ul>
+        </div>
+        <div class="lg2"> <img src="../img/LOGO2.png"> </div>
+    </div>
+    <div id="overp"></div>
+    <div id="pop">
+        <h2>&#9655; About Us</h2><br>
+        <p>Welcome to our website, where we provide courses on algorithmics from ISET Chaguia!</p><br>
+        <p>Our courses cover all the chapters you'll study in your first year, from the basics of algorithms to advanced
+            topics like data structures and recursion. And with our user-friendly interface, you'll find it fun and easy
+            to learn at your own pace.</p><br>
+        <p>When you sign up with your college email address, you'll get full access to all our courses and features. You
+            can track your progress, take quizzes, and even earn certificates to show off your skills.</p><br>
+        <p>And if you ever need help, our team of experienced instructors is always here to support you.</p><br><button
+            class="cl-btn" id="close-btn-pop" onclick="close_pop()">Close</button>
+    </div>
+
+    <button id="menu-toggle">Chapters</button>
+    <div id="sidbar">
+        <ul id="menu"></ul>
+    </div>
+    <script>
+        const menuItems = [
+            { name: "Introduction", url: "ch1.html" },
+            { name: "Notions de base", url: "ch2.html" },
+            { name: "Type simple", url: "ch3.html" },
+            { name: "Structure conditionnelles", url: "ch4.html" },
+            { name: "Structures itératives", url: "ch5.html" },
+            { name: "Tableaux", url: "ch6.html" },
+            { name: "Chaînes de caractères", url: "ch7.html" },
+            { name: "Fonctions sur les chaînes de caractères", url: "ch8.html" },
+            { name: "Enregistrements", url: "ch9.html" },
+            { name: "Procedures & Fonctions", url: "ch10.html" },
+            { name: "Récursivité", url: "ch11.html" },
+            { name: "Recherche & Tri", url: "ch12.html" },
+            { name: "Pointeurs", url: "ch13.html" },
+            { name: "Listes chaînées", url: "ch14.html" },
+            { name: "Piles & Files", url: "ch15.html" },
+            { name: "Arbres", url: "ch16.html" }
+        ];
+
+        const menuToggle = document.getElementById("menu-toggle");
+        const sidbar = document.getElementById("sidbar");
+        const menu = document.getElementById("menu");
+
+        menuItems.forEach(item => {
+            const li = document.createElement("li");
+            const a = document.createElement("a");
+            a.textContent = item.name;
+            a.href = item.url;
+            li.appendChild(a);
+            menu.appendChild(li);
+        });
+
+        menuToggle.addEventListener("click", () => {
+            sidbar.style.display = sidbar.style.display === "none" ? "block" : "none";
+        });
+
+
+    </script>
+
+
+    <!--Course-------------------------------------------------->
+
+    <div class="course-page">
+        <div class="course-header">
+            <h1 id="chapter-title">Introduction</h1>
+            <p>A brief overview of the course content and what students can expect to learn</p>
+        </div>
+        <div class="course-content">
+            <div class="course-video">
+                <div class="video-container">
+                    <div class="video" id="video1">
+                      <iframe width="1000" height="500" src="https://www.youtube.com/embed/eE9MnoS0lc0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="video" id="video2">
+                      <iframe width="1000" height="500" src="https://www.youtube.com/embed/shLeCvDQYp4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="video" id="video3">
+                      <iframe width="1000" height="500" src="https://www.youtube.com/embed/Vh4krbTnTAA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="video" id="video3">
+                        <iframe width="1000" height="500" src="https://www.youtube.com/embed/IqcJSGh1AWs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                      </div>
+                      <div class="video" id="video3">
+                        <iframe width="1000" height="500" src="https://www.youtube.com/embed/qLVrwCvVPGo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                      </div>
+
+                  </div>
+                  <div class="controls">
+                    <button onclick="prevVideo()">Previous</button>
+                    <button onclick="nextVideo()">Next</button>
+                  </div>
+            </div>
+            <script>
+                let currentVideoIndex = 0;
+const videos = document.querySelectorAll(".video");
+
+function showVideo(index) {
+  // Hide all videos except the one with the given index
+  for (let i = 0; i < videos.length; i++) {
+    if (i === index) {
+      videos[i].classList.add("active");
+    } else {
+      videos[i].classList.remove("active");
+    }
+  }
+}
+
+function nextVideo() {
+  currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+  showVideo(currentVideoIndex);
+}
+
+function prevVideo() {
+  currentVideoIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
+  showVideo(currentVideoIndex);
+}
+
+// Show the first video initially
+showVideo(currentVideoIndex);
+
+            </script>
+            <div class="course-info">
+                <h2><a href="LES TABLEAUX EN C.pdf " onclick="indexCheck(6)">Course Overview</a> </h2>
+                <p>A brief overview of the chapter content and any prerequisites</p>
+                <h2><a href="../examples/exp6.html" onclick="indexCheck(2)">Examples and Code Snippets</a></h2>
+                <p>Use examples and code snippets to illustrate key concepts and provide hands-on learning opportunities
+                </p>
+                <h2><a href="../quiz/quiz6.html" onclick="indexCheck(2)">Quiz</a></h2>
+                <p>Create a short quiz that tests students' understanding of the chapter</p>
+                <h2>Additional Resources</h2>
+                <p>Provide links to additional resources that can help students deepen their understanding of the
+                    chapter</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-p">
+        <a id="prev-btn" href="#"><button class="btn-p">Previous</button></a>
+        <a id="next-btn" href="#"><button class="btn-p">
+                <pre>    Next    </pre>
+            </button></a>
+    </div>
+
+    <script>
+        var pages = ["ch1.html", "ch2.html", "ch3.html", "ch4.html", "ch5.html", "ch6.html", "ch7.html", "ch8.html", "ch9.html", "ch10.html", "ch11.html", "ch12.html", "ch13.html", "ch14.html", "ch15.html", "ch16.html"];
+
+        var currentPage = window.location.pathname.split("/").pop();
+
+        var currentPageIndex = pages.indexOf(currentPage);
+
+        if (currentPageIndex > 0) {
+            document.getElementById("prev-btn").href = pages[currentPageIndex - 1];
+        }
+        if (currentPageIndex < pages.length - 1) {
+            document.getElementById("next-btn").href = pages[currentPageIndex + 1];
+        }
+    </script>
+
+    <!--Footer-------------------------------------------------------->
+
+    <footer id="contact">
+        <div class="Section_Title"> <img src="../images/code.png" alt="code" /> </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Catalog</a></li>
+                        <li><a href="#">Policyes</a></li>
+                        <li><a href="#">Programs</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h4>Get Help</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Feautures</a></li>
+                        <li><a href="#">Accessibilty</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Payment</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h4>Pay Here</h4>
+                    <ul>
+                        <li><a href="#">Learn</a></li>
+                        <li><a href="#">Articles</a></li>
+                        <li><a href="#">Purches</a></li>
+                        <li><a href="#">Tech++</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h4>Follow US</h4>
+                    <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a> <a
+                        href="https://www.twitter.com"><i class="fab fa-twitter"></i></a> <a
+                        href="https://www.instagram.com"><i class="fab fa-instagram"></i></a><br><br><a
+                        href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a> <a
+                        href="https://www.github.com"><i class="fab fa-github"></i></a> <a
+                        href="https://www.stackoverflow.com"><i class="fab fa-stack-overflow"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <footer id="cp">
+        <div class="copyright">
+            <p>&copy; 2023 TI104 Copyrights</p>
+        </div>
+    </footer>
+
+</body>
+<script src="../script.js"></script>
+
+</html>

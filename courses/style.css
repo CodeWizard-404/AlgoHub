@@ -1,0 +1,142 @@
+#menu-toggle {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    padding: 10px;
+    background-color: gray;
+    border-radius: 2px;
+    border: 1px solid white;
+    color: white;
+    text-shadow: 2px 2px 8px black;
+    box-shadow: 2px 2px 8px black;
+}
+
+#menu-toggle:hover {
+    cursor: pointer;
+    background-color: white;
+    color: gray;
+    text-shadow: none;
+    box-shadow: 1px 1px 8px black;
+    border: 1px solid gray;
+}
+
+#sidbar {
+    display: none;
+    position: fixed;
+    top: 90px;
+    right: 10px;
+    background-color: #f1f1f1;
+    padding: 10px;
+    box-shadow: 2px 2px 8px black;
+
+}
+
+#menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#menu li {
+    margin-bottom: 5px;
+}
+
+#menu li:hover {
+    text-shadow: 2px 2px 6px black;
+}
+
+#menu li a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#menu li a:hover {
+    color: rgb(216, 216, 216);
+}
+
+#menu li a:hover {
+    background-color: #8c8c8c;
+}
+
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  
+  .video {
+    display: none;
+  }
+  
+  .video.active {
+    display: block;
+  }
+  
+  .controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  button {
+    font-size: 20px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+  }
+  
+
+  @media only screen and (max-width:500px) {
+    #menu-toggle {
+    top: 10px;
+    right: 10px;
+    padding: 5px;
+    }
+    
+    #sidbar {
+    top: 60px;
+    right: 0;
+    width: 80%;
+    overflow: hidden;
+    }
+    
+    #menu {
+    margin: 10px;
+    }
+    
+    #menu li {
+    margin-bottom: 3px;
+    }
+    
+    #menu li a {
+    padding: 3px;
+    font-size: 18px;
+    }
+    
+    .controls {
+    margin-top: 10px;
+    }
+    
+    button {
+    font-size: 16px;
+    padding: 8px 16px;
+    margin: 0 5px;
+    }
+    }
+
+
+    .course-info h2 a{
+      color: black;
+    }
+    .course-info h2 a:hover{
+      color: rgb(200, 200, 200);
+      text-shadow: 2px 2px 2px black ;
+    
+      padding-right: 10px;
+      padding-left:5px ;
+      border-radius: 10px;
+    }

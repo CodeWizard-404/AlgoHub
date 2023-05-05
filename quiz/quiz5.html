@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="../img/LOGO1.png" type="Logo">
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  </head>
+  <body>
+  	<div class="loading-screen">
+        <div class="loading-icon"></div>
+        <div class="loading-text">Loading...</div>
+      </div>
+
+    <div class="sidebar">
+        <div class="flesh"> <img src="../images/flesh.png" alt="fl"> </div>
+        <div class="logo-sb"> <img src="../img/LOGO1.png" alt="logo">
+            <h3>Learn To Code</h3>
+        </div>
+        <div class="navi">
+            <div class="nav-title">Menu</div>
+            <ul> <a href="../index.html">
+                    <li class="nav-list" id="a1"> <img src="../images/home.png" alt="logo"> <span>Home</span> </li>
+                </a> <a href="../Profile.html">
+                    <li class="nav-list" id="a2"> <img src="../images/profile.png" alt="logo"> <span>Profile</span> </li>
+                </a> <a href="../courses.html">
+                    <li class="nav-list" id="a3"> <img src="../images/courses.png" alt="logo"> <span>Courses</span> </li>
+                </a> <a href="#contact">
+                    <li class="nav-list " id="a4"> <img src="../images/contact.png" alt="logo"> <span>Contact</span> </li>
+                    <a href="#" id="about-link">
+                        <li class="nav-list" id="a5"> <img src="../images/about.png" alt="logo"> <span>About Us</span>
+                        </li>
+                    </a> </ul>
+        </div>
+        <div class="lg2"> <img src="../img/LOGO2.png"> </div>
+    </div>
+    <section>
+    	<div>
+ <div class="header_wrap">
+        <div class="header0"></div>
+        <div class="cols">
+            <div class="left_col">
+                <div class="img_container">
+                    <img src="../images/quiz.png" >
+                </div>
+            </div>
+   </div>
+ </div>
+ <h1 id="countdown" class="timer">5:00</h1>
+ <script>
+  var minutes = 5;
+  var seconds = 0;
+  var countdownTimer = setInterval(function(){
+    if(seconds == 0){
+      if(minutes == 0){
+        clearInterval(countdownTimer);
+      } else {
+        minutes--;
+        seconds = 59;
+      }
+    } else {
+      seconds--;
+    }
+    
+    document.getElementById("countdown").textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  }, 1000);
+</script>
+  	<div class="center">
+    <div class="quiz-container">
+      <div id="quiz"></div>
+      <button id="submit"><a class="btn" id="btn">&#9655; Submit</a></button>
+    </div>
+</div>
+
+</section>
+    <script>
+        const quizContainer = document.getElementById('quiz');
+const submitButton = document.getElementById('submit');
+
+const myQuestions = [
+  {
+    question: " Qu’est ce qu’une boucle ? ",
+    answers: {
+      a: "Une répétition d’instructions plusieurs fois jusqu'à ce qu'une les conditions soit atteintes",
+      b: "une répétition du programme une seconde fois  ",
+  
+    },
+    correctAnswer: "a"
+  },
+    {
+    question: "La boucle for est-elle ?",
+    answers: {
+      a: "A entrée contrôlée",
+      b: "A sortie contrôlée",
+      c: "les deux"
+    },
+    correctAnswer: "a"
+  },
+  {
+    question: " Quel boucle est le mieux utilisé lorsque le nombre d’itérations est connu à l’avance?",
+    answers: {
+      a: "for",
+      b: "while",
+      c: "do-while"
+    },
+    correctAnswer: "a"
+  },
+  {
+    question: " Quelle boucle son exécution est terminée sur la base d'une condition?",
+    answers: {
+      a: "for",
+      b: "if-else",
+      c: "do-while"
+    },
+    correctAnswer: "c"
+  },
+{
+    question: "int main(){ nombre = 1 while (nombre > 0) {print(nombre)nombre = nombre + 1}} Ce code affichera :",
+    answers: {
+      a: "1",
+      b: "123456789",
+      c: "12345678910...",
+    },
+    correctAnswer: "c"
+  },
+  {
+    question: "void main(){ int a,i ;A=5 ; i=1 ;Do{Printf(%dt,a+i) ;i++ ; }while (i<=5) ;}Ce code affichera :",
+    answers: {
+      a: "6",
+      b: "678910",
+      c: "12345",
+    },
+    correctAnswer: "b"
+  },
+];
+
+function buildQuiz() {
+  const output = [];
+
+  myQuestions.forEach((currentQuestion, questionNumber) => {
+    const answers = [];
+
+    for (letter in currentQuestion.answers) {
+      answers.push(
+        `<label>
+           <input type="radio" name="question${questionNumber}" value="${letter}">
+           ${letter} :
+           ${currentQuestion.answers[letter]}
+         </label>`
+      );
+    }
+
+    output.push(
+      `<div class="question"> ${currentQuestion.question} </div>
+       <div class="answers"> ${answers.join('')} </div>`
+    );
+  });
+
+  quizContainer.innerHTML = output.join('');
+}
+
+function showResults() {
+  const answerContainers = quizContainer.querySelectorAll('.answers');
+
+  let numCorrect = 0;
+
+  myQuestions.forEach((currentQuestion, questionNumber) => {
+    const answerContainer = answerContainers[questionNumber];
+    const selector = `input[name=question${questionNumber}]:checked`;
+    const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+    if (userAnswer === currentQuestion.correctAnswer) {
+      numCorrect++;
+      answerContainers[questionNumber].style.color = 'green';
+    } else {
+      answerContainers[questionNumber].style.color = 'red';
+    }
+  });
+
+  quizContainer.innerHTML = `You got ${numCorrect} out of ${myQuestions.length} correct!`;
+}
+
+buildQuiz();
+
+submitButton.addEventListener('click', showResults);
+
+    </script>
+    <footer id="contact">
+        <div class="Section_Title"> <img src="../images/code.png" alt="code" /> </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Catalog</a></li>
+                        <li><a href="#">Policyes</a></li>
+                        <li><a href="#">Programs</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h4>Get Help</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Feautures</a></li>
+                        <li><a href="#">Accessibilty</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Payment</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h4>Pay Here</h4>
+                    <ul>
+                        <li><a href="#">Learn</a></li>
+                        <li><a href="#">Articles</a></li>
+                        <li><a href="#">Purches</a></li>
+                        <li><a href="#">Tech++</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h4>Follow US</h4> 
+                        <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a> <a
+                        href="https://www.twitter.com"><i class="fab fa-twitter"></i></a> <a
+                        href="https://www.instagram.com"><i class="fab fa-instagram"></i></a><br><br><a
+                        href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a> <a
+                        href="https://www.github.com"><i class="fab fa-github"></i></a> <a
+                        href="https://www.stackoverflow.com"><i class="fab fa-stack-overflow"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <footer id="cp">
+        <div class="copyright">
+            <p>&copy; 2023 TI104 Copyright</p>
+        </div>
+    </footer>
+  </body>
+  <script src="../script.js"></script>
+</html>

@@ -1,1 +1,1 @@
-# AlgoHub2.0
+# AlgoHub
