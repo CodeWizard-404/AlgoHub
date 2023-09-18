@@ -82,10 +82,10 @@
 
 </section>
     <script>
-        const quizContainer = document.getElementById('quiz');
-const submitButton = document.getElementById('submit');
+        var quizContainer = document.getElementById('quiz');
+var submitButton = document.getElementById('submit');
 
-const myQuestions = [
+var myQuestions = [
   {
     question: "int isdigit(int c) que vérifie cette fonction ?",
     answers: {
@@ -105,7 +105,7 @@ const myQuestions = [
     correctAnswer: "c"
   },
   {
-    question: "int strcmp(const char *s1, const char *s2) que signifie cette fonction ?",
+    question: "int strcmp(var char *s1, var char *s2) que signifie cette fonction ?",
     answers: {
       a: "Concaténation de deux chaînes<br>",
       b: "Comparaison de la taille de deux chaînes<br>",
@@ -114,7 +114,7 @@ const myQuestions = [
     correctAnswer: "b"
   },
    {
-    question: "char *strchr(const char *s, int c) que signifie cette fonction ?",
+    question: "char *strchr(var char *s, int c) que signifie cette fonction ?",
     answers: {
       a: "Recherche dans une chaîne<br>",
       b: "Copie une chaîne à une autre <br>",
@@ -125,10 +125,10 @@ const myQuestions = [
 ];
 
 function buildQuiz() {
-  const output = [];
+  var output = [];
 
   myQuestions.forEach((currentQuestion, questionNumber) => {
-    const answers = [];
+    var answers = [];
 
     for (letter in currentQuestion.answers) {
       answers.push(
@@ -150,14 +150,14 @@ function buildQuiz() {
 }
 
 function showResults() {
-  const answerContainers = quizContainer.querySelectorAll('.answers');
+  var answerContainers = quizContainer.querySelectorAll('.answers');
 
   let numCorrect = 0;
 
   myQuestions.forEach((currentQuestion, questionNumber) => {
-    const answerContainer = answerContainers[questionNumber];
-    const selector = `input[name=question${questionNumber}]:checked`;
-    const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+    var answerContainer = answerContainers[questionNumber];
+    var selector = `input[name=question${questionNumber}]:checked`;
+    var userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
     if (userAnswer === currentQuestion.correctAnswer) {
       numCorrect++;

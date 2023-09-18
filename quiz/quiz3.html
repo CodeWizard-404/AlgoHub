@@ -82,10 +82,10 @@
 
 </section>
     <script >
-        const quizContainer = document.getElementById('quiz');
-const submitButton = document.getElementById('submit');
+        var quizContainer = document.getElementById('quiz');
+var submitButton = document.getElementById('submit');
 
-const myQuestions = [
+var myQuestions = [
   {
     question: "Lequel des énoncés suivants est une déclaration de nom de variable invalide?",
     answers: {
@@ -115,11 +115,11 @@ const myQuestions = [
     correctAnswer: "a"
   },
   {
-    question: "Quel syntaxe est valide pour la déclaration d’une constante ?",
+    question: "Quel syntaxe est valide pour la déclaration d’une varante ?",
     answers: {
-      a: "int constant y=24<br>",
+      a: "int varant y=24<br>",
       b: "int y=24<br>",
-      c: "const int y=24<br>"
+      c: "var int y=24<br>"
     },
     correctAnswer: "c"
   },
@@ -136,10 +136,10 @@ const myQuestions = [
 ];
 
 function buildQuiz() {
-  const output = [];
+  var output = [];
 
   myQuestions.forEach((currentQuestion, questionNumber) => {
-    const answers = [];
+    var answers = [];
 
     for (letter in currentQuestion.answers) {
       answers.push(
@@ -161,14 +161,14 @@ function buildQuiz() {
 }
 
 function showResults() {
-  const answerContainers = quizContainer.querySelectorAll('.answers');
+  var answerContainers = quizContainer.querySelectorAll('.answers');
 
   let numCorrect = 0;
 
   myQuestions.forEach((currentQuestion, questionNumber) => {
-    const answerContainer = answerContainers[questionNumber];
-    const selector = `input[name=question${questionNumber}]:checked`;
-    const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+    var answerContainer = answerContainers[questionNumber];
+    var selector = `input[name=question${questionNumber}]:checked`;
+    var userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
     if (userAnswer === currentQuestion.correctAnswer) {
       numCorrect++;

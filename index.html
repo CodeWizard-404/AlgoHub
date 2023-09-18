@@ -32,7 +32,7 @@
     </div>
     <script>
         let myProgressBar = document.querySelector(".progressPercent");
-        const setProgress = () => {
+        var setProgress = () => {
             myProgressBar.style.width = localStorage.percent + "%";
         };
 
@@ -50,7 +50,7 @@
             }
 
             // Update progress based on user's visits to PDFs
-            const chapters = [
+            var chapters = [
                 "ch1.html",
                 "ch2.html",
                 "ch3.html",
@@ -69,11 +69,11 @@
                 "ch16.html",
             ];
 
-            const courseOverviewPdf = "intro.pdf";
+            var courseOverviewPdf = "intro.pdf";
 
             for (let i = 0; i < chapters.length; i++) {
-                const chapterPdf = `./courses/${chapters[i].split(".")[0]}.pdf`;
-                const chapterLink = document.createElement("a");
+                var chapterPdf = `./courses/${chapters[i].split(".")[0]}.pdf`;
+                var chapterLink = document.createElement("a");
                 chapterLink.href = chapterPdf;
                 chapterLink.setAttribute("onclick", `indexCheck(${i})`);
 
@@ -81,7 +81,7 @@
                     chapterLink.classList.add("visited");
                 }
 
-                const chapterTitle = document.createElement("h2");
+                var chapterTitle = document.createElement("h2");
                 chapterTitle.appendChild(chapterLink);
                 chapterTitle.textContent = `Chapter ${i + 1}`;
 
@@ -89,7 +89,7 @@
             }
         };
 
-        const addToLocalStorage = () => {
+        var addToLocalStorage = () => {
             let myCurrent = parseFloat(localStorage.percent);
             if (myCurrent < 100) {
                 myCurrent += 6.25;
@@ -98,14 +98,14 @@
             }
         };
 
-        const progressBarMaxValue = 100;
+        var progressBarMaxValue = 100;
         if (parseFloat(localStorage.percent) > progressBarMaxValue) {
             localStorage.percent = JSON.stringify(progressBarMaxValue);
             setProgress();
         }
 
-        const indexCheck = (pageNumber) => {
-            const visitedChapters = JSON.parse(localStorage.indexs);
+        var indexCheck = (pageNumber) => {
+            var visitedChapters = JSON.parse(localStorage.indexs);
 
             if (!visitedChapters.includes(pageNumber)) {
                 visitedChapters.push(pageNumber);

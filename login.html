@@ -478,11 +478,11 @@
 
 
             <script>
-                const sign_in_btn = document.querySelector("#sign-in-btn");
-                const sign_up_btn = document.querySelector("#sign-up-btn");
-                const container = document.querySelector(".container");
-                const sign_in_btn2 = document.querySelector("#sign-in-btn2");
-                const sign_up_btn2 = document.querySelector("#sign-up-btn2");
+                var sign_in_btn = document.querySelector("#sign-in-btn");
+                var sign_up_btn = document.querySelector("#sign-up-btn");
+                var container = document.querySelector(".container");
+                var sign_in_btn2 = document.querySelector("#sign-in-btn2");
+                var sign_up_btn2 = document.querySelector("#sign-up-btn2");
 
                 sign_up_btn.addEventListener("click", () => {
                     container.classList.add("sign-up-mode");
@@ -519,12 +519,12 @@
 
 
                 function validate() {
-                    const emailInput = document.getElementById('email').value;
-                    const usernameInput = document.getElementById('user').value;
-                    const passwordInput = document.getElementById('pass').value;
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    const usernameRegex = /^[a-zA-Z0-9_-]{3,16}$/;
-                    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+                    var emailInput = document.getElementById('email').value;
+                    var usernameInput = document.getElementById('user').value;
+                    var passwordInput = document.getElementById('pass').value;
+                    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    var usernameRegex = /^[a-zA-Z0-9_-]{3,16}$/;
+                    var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
                     if (!emailRegex.test(emailInput)) {
                     alert('Please enter a valid email address');
                     return;

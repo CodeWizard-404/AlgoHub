@@ -1,4 +1,4 @@
-const chapters = [
+var chapters = [
     "Introduction",
     "Notions de base",
     "Type simple",
@@ -18,16 +18,16 @@ const chapters = [
   ];
   
   window.addEventListener("DOMContentLoaded", () => {
-    const chapterTitle = document.getElementById("chapter-title");
-    const currentPage = window.location.pathname.split("/").pop();
-    const currentPageNumber = parseInt(currentPage.match(/\d+/)[0]);
+    var chapterTitle = document.getElementById("chapter-title");
+    var currentPage = window.location.pathname.split("/").pop();
+    var currentPageNumber = parseInt(currentPage.match(/\d+/)[0]);
     chapterTitle.textContent = `Chapitre ${currentPageNumber}: ${chapters[currentPageNumber - 1]}`;
   });
 
 
 
 
-  const videoIds = [
+  var videoIds = [
     "nrbBmoINqtk", 
     "ME1CNzcHOCY", 
     "1eyf1-RU_eg",
@@ -48,9 +48,9 @@ const chapters = [
 
   
   window.addEventListener("DOMContentLoaded", () => {
-    const courseVideo = document.getElementById("course-video");
-    const currentPage = window.location.pathname.split("/").pop();
-    const currentPageNumber = parseInt(currentPage.match(/\d+/)[0]);
+    var courseVideo = document.getElementById("course-video");
+    var currentPage = window.location.pathname.split("/").pop();
+    var currentPageNumber = parseInt(currentPage.match(/\d+/)[0]);
     courseVideo.src = `https://www.youtube.com/embed/${videoIds[currentPageNumber - 1]}`;
   });
   

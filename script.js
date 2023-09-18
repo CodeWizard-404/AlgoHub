@@ -6,7 +6,7 @@ window.onload = function () {
     document.querySelector('.loading-screen').style.display = 'none';
   });
 }
-const sidebar = document.querySelector(".sidebar"),
+var sidebar = document.querySelector(".sidebar"),
   flesh = document.querySelector(".flesh");
 (sidebar.onmouseover = function () {
   "sidebar" == sidebar.className && sidebar.classList.add("open");
@@ -55,7 +55,7 @@ function ok_click() {
 document.querySelector("#search_input").addEventListener("input", filterlist);
 var data_list = document.getElementById("data_list");
 function filterlist() {
-  const a = document.querySelector("#search_input"),
+  var a = document.querySelector("#search_input"),
     b = a.value.toLowerCase(),
     c = document.querySelectorAll(".search_data_list");
   c.forEach((a) => {

@@ -73,7 +73,7 @@
         <ul id="menu"></ul>
     </div>
     <script>
-        const menuItems = [
+        var menuItems = [
             { name: "Introduction", url: "ch1.html" },
             { name: "Notions de base", url: "ch2.html" },
             { name: "Type simple", url: "ch3.html" },
@@ -92,13 +92,13 @@
             { name: "Arbres", url: "ch16.html" }
         ];
 
-        const menuToggle = document.getElementById("menu-toggle");
-        const sidbar = document.getElementById("sidbar");
-        const menu = document.getElementById("menu");
+        var menuToggle = document.getElementById("menu-toggle");
+        var sidbar = document.getElementById("sidbar");
+        var menu = document.getElementById("menu");
 
         menuItems.forEach(item => {
-            const li = document.createElement("li");
-            const a = document.createElement("a");
+            var li = document.createElement("li");
+            var a = document.createElement("a");
             a.textContent = item.name;
             a.href = item.url;
             li.appendChild(a);
@@ -147,7 +147,7 @@
             </div>
             <script>
                 let currentVideoIndex = 0;
-const videos = document.querySelectorAll(".video");
+var videos = document.querySelectorAll(".video");
 
 function showVideo(index) {
   // Hide all videos except the one with the given index
