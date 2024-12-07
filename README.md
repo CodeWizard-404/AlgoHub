@@ -2,7 +2,7 @@
 
 # 🌟 AlgoHub: Learn C Programming Like Never Before!  
 
-![AlgoHub Header](readmeFiles\Home.png)  
+![AlgoHub Header](readmeFiles/Home.png)  
 
 **AlgoHub** is your one-stop platform for mastering C programming!  
 Learn, practice, and improve your coding skills with interactive lessons, live code execution, and engaging challenges tailored for beginners and enthusiasts.  
@@ -35,26 +35,26 @@ Learn, practice, and improve your coding skills with interactive lessons, live c
 
 ### **Home Page**  
 The central hub for accessing lessons, challenges, and the code editor.  
-![Home Page](readmeFiles\Home.png)  
-![Home Page](readmeFiles\Home1.png)  
-![Home Page](readmeFiles\Home2.png)  
-![Home Page](readmeFiles\Home3.png)  
+![Home Page](readmeFiles/Home.png)  
+![Home Page](readmeFiles/Home1.png)  
+![Home Page](readmeFiles/Home2.png)  
+![Home Page](readmeFiles/Home3.png)  
 
 ### **Interactive Code Editor**  
 Test and debug your code instantly in the browser.  
-![Home Page](readmeFiles\code.png)  
-![Home Page](readmeFiles\quiz.png)  
+![Home Page](readmeFiles/code.png)  
+![Home Page](readmeFiles/quiz.png)  
  
 
 ### **Learning Modules**  
 Each module is structured to build your understanding step-by-step.  
-![Home Page](readmeFiles\modules.png)  
-![Home Page](readmeFiles\module1.png)  
+![Home Page](readmeFiles/modules.png)  
+![Home Page](readmeFiles/module1.png)  
 
 ### **Authentification**  
   
-![Home Page](readmeFiles\signup.png)  
-![Home Page](readmeFiles\login.png)  
+![Home Page](readmeFiles/signup.png)  
+![Home Page](readmeFiles/login.png)  
 
 ---
 
